@@ -11,4 +11,4 @@ let sendObj = {
     method : "GET"
 }
 
-fetch("http://localhost:3000/handleSum?counter=10000", sendObj).then(callBackFn)
+fetch("http://localhost:3000/handleRequest?nthNumber=7", sendObj).then(callBackFn)
