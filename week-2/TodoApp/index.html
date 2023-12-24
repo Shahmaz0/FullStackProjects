@@ -5,19 +5,26 @@
 </head>
     <script>
         function onPress() {
+            function parsedResponse(data) {
+                console.log(data);
+            }
+
+            function callBack(resp) {
+                resp.json.then(parsedResponse);
+            }
+
             const type = {
                 method : "GET"
             }
-            fetch("http://localhost:3000/todos", type).then(async x => {
-
-            console.log(await x.json());
-        })
+            fetch("http://localhost:3000/todos", type).then(callBack)
     }
     </script>
-    <inp>
+    <body>
         Todo title
         <input type="text", id="title"></input>
+        <br><br>
         Todo Description
         <input type="text", id="title"></input>
+        <br><br>
         <button onclick="onPress()"> send todo</button>
     </body> 
