@@ -4,21 +4,46 @@
     </title>
 </head>
     <script>
-        function onPress() {
-            function parsedResponse(data) {
-                console.log(data);
-            }
 
-            function callBack(resp) {
-                resp.json.then(parsedResponse);
-            }
+        //Get data from frontend
+
+        function todosCallBack(data){
+            console.log(data);
+        }
+
+        function getDataCallBack(resp) {
+            resp.json().then(todosCallBack)
+        }
+
+        function getData(){
+            fetch("http://localhost:3000/todos", {
+                method : "GET"
+            }).then(getDataCallBack)
+        }
+
+        getData();
+
+
+        //Post data from frontend        
+
+        function parsedResponse(data) {
+            console.log(data);
+        }
+        
+        function callBack(resp) {
+            resp.json().then(parsedResponse);
+        }
+        
+        function onPress() {
+            const title = document.getElementById("title").value
+            const description = document.getElementById("description").value
 
             fetch("http://localhost:3000/todos", {
-
+                
                 method : "POST",
                 body : JSON.stringify({
-                    title : "Gym",
-                    description : "Go to gym at 7pm"
+                    title : title,
+                    description : description
                 }),
                 headers : {
                     "Content-Type" : "application/json"
@@ -31,7 +56,7 @@
         <input type="text", id="title"></input>
         <br><br>
         Todo Description
-        <input type="text", id="title"></input>
+        <input type="text", id="description"></input>
         <br><br>
         <button onclick="onPress()"> send todo</button>
     </body> 
