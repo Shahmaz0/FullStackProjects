@@ -8,11 +8,15 @@
             console.log("Delete Done");
             // delete the right todo from the list
             // You will need to give each todo an id, and that should be enough to remove it
+            var elementToRemove = document.getElementById("todo_" + id);
+            if (elementToRemove) {
+                var parentElement = elementToRemove.parentNode;
+                parentElement.removeChild(elementToRemove);
+            }
         }
-        
         function deleteTodo(id){
             fetch("http://localhost:3000/todos/" + id, {
-
+                
                 method : "DELETE",
                 headers : {
                     "Content-Type" : "application/json"
@@ -113,6 +117,5 @@
         <button onclick="onPress()"> send todo</button>
 
         <div id="mainArea">
-            hi there
         </div>
     </body> 
