@@ -1,5 +1,6 @@
 
 function createDomElements(data) {
+  console.log(data);
   var parentElement = document.getElementById("mainArea");
 
   // Get the current children of the parent element and convert it to an array
@@ -68,4 +69,4 @@ window.setInterval(() => {
   }
 
   createDomElements(todos)
-}, 10000)
+}, 1000)
