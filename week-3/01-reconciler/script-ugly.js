@@ -3,7 +3,7 @@ function createDomElements(data) {
   
     // Clear all existing children of the parentElement
     parentElement.innerHTML = '';
-  
+
     let added = 0;
     // Process each item in the data array
     data.forEach(function(item) {
@@ -42,5 +42,5 @@ function createDomElements(data) {
     }
   
     createDomElements(todos)
-  }, 5000)
+  }, 1000)
   
