@@ -2,6 +2,8 @@ let vDOM = []; // Our initial vDOM is an empty array
 
 function createDomElements(existingDOM, currentDOM) {
   var parentElement = document.getElementById("mainArea");
+  // console.log(existingDOM);
+  // console.log(currentDOM);
 
   let added = 0, deleted = 0, updated = 0;
 
@@ -82,4 +84,4 @@ window.setInterval(() => {
   }
 
   updateVirtualDom(todos);
-}, 5000);
+}, 10000);
