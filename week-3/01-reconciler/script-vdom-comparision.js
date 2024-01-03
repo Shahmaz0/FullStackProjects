@@ -56,7 +56,11 @@ function createDomElements(existingDOM, currentDOM) {
 }
 
 function updateVirtualDom(data) {
-  let existingDOM = [...vDOM]; // Save the existing state of vDOM
+  // let existingDOM = [...vDOM];    // Save the existing state of vDOM
+  let existingDOM = [];
+  for (let i = 0; i < vDOM.length; i++) {
+    existingDOM.push(vDOM[i]);
+  }
   vDOM = data.map(item => {
     return {
       id: item.id,
