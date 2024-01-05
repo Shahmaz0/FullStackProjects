@@ -2,7 +2,7 @@
 import React from 'react'
 import './App.css'
 
-var count = 0;
+
 function App() {
   const [todoForToday, setTodoForToday] = React.useState({
     title: "Go to gym",
@@ -10,19 +10,10 @@ function App() {
     id: 1
   });
 
-  console.log("render");
-  if (count === 0){
-    setInterval(() => {
-      setTodoForToday({
-        title: "I'll go to gym today",
-        description: " At 7pm sharp",
-        id: 1
-      })
-    },3000)
-
-    count = 1;
-
-  }
+  React.useEffect(() => {
+    console.log("hi from useEffect");
+  })
+ 
 
   return (
     <div>
