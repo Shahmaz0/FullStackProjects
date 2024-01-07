@@ -18,8 +18,11 @@
  */
 const express = require('express');
 const fs = require('fs');
+const cors = require("cors");
 const path = require('path');
 const app = express();
+
+app.use(cors());
 
 app.get('/files', (req, res) => {
   fs.readdir(path.join(__dirname, './files/'), (err, files) => {
@@ -45,4 +48,4 @@ app.all('*', (req, res) => {
   res.status(404).send('Route not found');
 });
 
-module.exports = app;
+app,listen(3000)
